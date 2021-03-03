@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View product</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="product_desc.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light" id="actionbar">
+        <a href="index.html" class="navbar-brand">Store</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="navbar-nav">
+                <a href="products.html" class="nav-item nav-link active">Products</a>
+                <a href="#" class="nav-item nav-link">Profile</a>
+            </div>
+            <form class="form-inline">
+                <div class="input-group">                    
+                    <input type="text" class="form-control" placeholder="Search">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary"><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link">Login</a>
+                <img src="images/favpng_shopping-bags-trolleys-handbag.png" id="cart">
+            </div>
+        </div>
+    </nav>
+    <div id="content-wrapper">
+        <div class="column">
+            <img src="images/tshirt1.webp " id="featured">
+
+            <div id="slide-wrapper">
+                <img src="images/arrow-left.png" id="slideLeft" class="arrow">
+                <div id="slider">
+                    <img src="images/tshirt2.jpg" class="thumbnail active">
+                    <img src="images/tshirt3.jpeg" class="thumbnail ">
+                    <img src="images/tshirt4.jpeg" class="thumbnail ">
+                    <img src="images/tshirt5.jpeg " class="thumbnail ">
+                    <img src="images/tshirt6.jpg" class="thumbnail ">
+                </div>
+                <img src="images/arrow-right.png" id="slideRight" class="arrow">
+            </div>
+        </div>
+        <div class="column">
+            <h1>View Product</h1>
+            <hr>
+            <h3>$89.99</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                Nulla, ut. Voluptatibus perferendis libero omnis debitis,
+                neque aspernatur a saepe eum sequi quam iste deserunt.
+                Iste perferendis neque quidem nam similique!</p>
+            <input value="1" type="number">
+            <a class="btn btn-dark" href="#">Add to cart</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+    let thumbnails = document.getElementsByClassName('thumbnail')
+
+    let activeimages = document.getElementsByClassName('active')
+
+    for(var i=0; i < thumbnails.length ; i++){
+        thumbnails[i].addEventListener('mouseover', function () {
+            if (activeimages.length > 0){
+                activeimages[0].classList.remove('active')
+            }
+            this.classList.add('active')
+            document.getElementById('featured').src = this.src
+        })
+    }
+    let buttonRight = document.getElementById('slideRight');
+    let buttonLeft = document.getElementById('slideLeft');
+
+    buttonLeft.addEventListener('click', function(){
+        document.getElementById('slider').scrollLeft -= 180
+    })
+    buttonRight.addEventListener('click', function(){
+        document.getElementById('slider').scrollLeft += 180
+    })
+    </script>
+    
+</body>
+</html>
